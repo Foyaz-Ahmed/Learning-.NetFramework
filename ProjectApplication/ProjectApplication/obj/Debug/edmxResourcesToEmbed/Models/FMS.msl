@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FMSModelStoreContainer" CdmEntityContainer="FMSEntities">
+    <EntitySetMapping Name="Fitnesses">
+      <EntityTypeMapping TypeName="FMSModel.Fitness">
+        <MappingFragment StoreEntitySet="Fitnesses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="SalaryGrade" ColumnName="SalaryGrade" />
+          <ScalarProperty Name="InjuryStatus" ColumnName="InjuryStatus" />
+          <ScalarProperty Name="OvarallRating" ColumnName="OvarallRating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="FMSModel.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TextDetails" ColumnName="TextDetails" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="FMSModel.Player">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="GoalScored" ColumnName="GoalScored" />
+          <ScalarProperty Name="Assist" ColumnName="Assist" />
+          <ScalarProperty Name="FitnessId" ColumnName="FitnessId" />
+          <ScalarProperty Name="SalaryId" ColumnName="SalaryId" />
+          <ScalarProperty Name="JOiningDate" ColumnName="JOiningDate" />
+          <ScalarProperty Name="ContactYear" ColumnName="ContactYear" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salaries">
+      <EntityTypeMapping TypeName="FMSModel.Salary">
+        <MappingFragment StoreEntitySet="Salaries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="SalaryGrade" ColumnName="SalaryGrade" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="FMSModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="FMSModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeInformations">
+      <EntityTypeMapping TypeName="FMSModel.EmployeeInformation">
+        <MappingFragment StoreEntitySet="EmployeeInformations">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="JOiningDate" ColumnName="JOiningDate" />
+          <ScalarProperty Name="ContactYear" ColumnName="ContactYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fixures">
+      <EntityTypeMapping TypeName="FMSModel.Fixure">
+        <MappingFragment StoreEntitySet="Fixures">
+          <ScalarProperty Name="MatchDay" ColumnName="MatchDay" />
+          <ScalarProperty Name="Opponent" ColumnName="Opponent" />
+          <ScalarProperty Name="MatchStatus" ColumnName="MatchStatus" />
+          <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

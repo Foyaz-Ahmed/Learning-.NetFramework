@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FMSModelStoreContainer" CdmEntityContainer="FMSEntities1">
+    <EntitySetMapping Name="EmployeeInformations">
+      <EntityTypeMapping TypeName="FMSModel.EmployeeInformation">
+        <MappingFragment StoreEntitySet="EmployeeInformations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="E_Designation" ColumnName="E_Designation" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="ContactYear" ColumnName="ContactYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fitnesses">
+      <EntityTypeMapping TypeName="FMSModel.Fitness">
+        <MappingFragment StoreEntitySet="Fitness">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="f_Percentage" ColumnName="f_Percentage" />
+          <ScalarProperty Name="InjuryStatus" ColumnName="InjuryStatus" />
+          <ScalarProperty Name="OverallRating" ColumnName="OverallRating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="FMSModel.Player">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="GoalScored" ColumnName="GoalScored" />
+          <ScalarProperty Name="Assist" ColumnName="Assist" />
+          <ScalarProperty Name="FitnessId" ColumnName="FitnessId" />
+          <ScalarProperty Name="SalaryId" ColumnName="SalaryId" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="ContactYear" ColumnName="ContactYear" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salaries">
+      <EntityTypeMapping TypeName="FMSModel.Salary">
+        <MappingFragment StoreEntitySet="Salaries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="SalaryGrade" ColumnName="SalaryGrade" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="SalaryStatus" ColumnName="SalaryStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="FMSModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fixtures">
+      <EntityTypeMapping TypeName="FMSModel.Fixture">
+        <MappingFragment StoreEntitySet="Fixtures">
+          <ScalarProperty Name="MatchDay" ColumnName="MatchDay" />
+          <ScalarProperty Name="Opponent" ColumnName="Opponent" />
+          <ScalarProperty Name="Match_Status" ColumnName="Match_Status" />
+          <ScalarProperty Name="Match_Date" ColumnName="Match_Date" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

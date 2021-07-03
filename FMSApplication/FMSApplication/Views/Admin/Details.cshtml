@@ -1,0 +1,106 @@
+﻿@model FMSApplication.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Player</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalScored)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoalScored)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Assist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Assist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FitnessId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FitnessId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalaryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoiningDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dob)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

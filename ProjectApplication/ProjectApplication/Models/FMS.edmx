@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMS.dbo.EmployeeInformations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EmployeeInformations">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="Age" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="JOiningDate" />
+            <PropertyRef Name="ContactYear" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="JOiningDate" Type="datetime" Nullable="false" />
+          <Property Name="ContactYear" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fitnesses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Percentage" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SalaryGrade" Type="varchar" MaxLength="30" />
+          <Property Name="InjuryStatus" Type="varchar" MaxLength="30" />
+          <Property Name="OvarallRating" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FMS.dbo.Fixures' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Fixures">
+          <Key>
+            <PropertyRef Name="Opponent" />
+          </Key>
+          <Property Name="MatchDay" Type="int" />
+          <Property Name="Opponent" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="MatchStatus" Type="varchar" MaxLength="255" />
+          <Property Name="MatchDate" Type="date" />
+          <Property Name="Result" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="TextDetails" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nationality" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Position" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="GoalScored" Type="int" />
+          <Property Name="Assist" Type="int" />
+          <Property Name="FitnessId" Type="int" Nullable="false" />
+          <Property Name="SalaryId" Type="int" />
+          <Property Name="JOiningDate" Type="datetime" Nullable="false" />
+          <Property Name="ContactYear" Type="datetime" Nullable="false" />
+          <Property Name="Dob" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Salaries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="SalaryGrade" Type="varchar" MaxLength="30" />
+          <Property Name="Bonus" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__EmployeeI__Emplo__24927208">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="EmployeeInformations" Type="Self.EmployeeInformations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeInformations">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Players__PlayerI__30F848ED">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fitnesses_Fitnesses">
+          <End Role="Fitnesses" Type="Self.Fitnesses" Multiplicity="1" />
+          <End Role="Fitnesses1" Type="Self.Fitnesses" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Fitnesses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fitnesses1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Messages" Type="Self.Messages" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Fitnesses">
+          <End Role="Fitnesses" Type="Self.Fitnesses" Multiplicity="1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fitnesses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="FitnessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Salaries">
+          <End Role="Salaries" Type="Self.Salaries" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salaries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="SalaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FMSModelStoreContainer">
+          <EntitySet Name="Fitnesses" EntityType="Self.Fitnesses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salaries" EntityType="Self.Salaries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeInformations" EntityType="Self.EmployeeInformations" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmployeeInformations].[Name] AS [Name], 
+    [EmployeeInformations].[EmployeeId] AS [EmployeeId], 
+    [EmployeeInformations].[Age] AS [Age], 
+    [EmployeeInformations].[Designation] AS [Designation], 
+    [EmployeeInformations].[JOiningDate] AS [JOiningDate], 
+    [EmployeeInformations].[ContactYear] AS [ContactYear]
+    FROM [dbo].[EmployeeInformations] AS [EmployeeInformations]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Fixures" EntityType="Self.Fixures" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Fixures].[MatchDay] AS [MatchDay], 
+    [Fixures].[Opponent] AS [Opponent], 
+    [Fixures].[MatchStatus] AS [MatchStatus], 
+    [Fixures].[MatchDate] AS [MatchDate], 
+    [Fixures].[Result] AS [Result]
+    FROM [dbo].[Fixures] AS [Fixures]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__EmployeeI__Emplo__24927208" Association="Self.FK__EmployeeI__Emplo__24927208">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="EmployeeInformations" EntitySet="EmployeeInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Players__PlayerI__30F848ED" Association="Self.FK__Players__PlayerI__30F848ED">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fitnesses_Fitnesses" Association="Self.FK_Fitnesses_Fitnesses">
+            <End Role="Fitnesses" EntitySet="Fitnesses" />
+            <End Role="Fitnesses1" EntitySet="Fitnesses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users" Association="Self.FK_Messages_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Fitnesses" Association="Self.FK_Players_Fitnesses">
+            <End Role="Fitnesses" EntitySet="Fitnesses" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Salaries" Association="Self.FK_Players_Salaries">
+            <End Role="Salaries" EntitySet="Salaries" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Fitness">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Percentage" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SalaryGrade" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="InjuryStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OvarallRating" Type="Int32" />
+          <NavigationProperty Name="Fitnesses1" Relationship="Self.FK_Fitnesses_Fitnesses" FromRole="Fitnesses" ToRole="Fitnesses1" />
+          <NavigationProperty Name="Fitness1" Relationship="Self.FK_Fitnesses_Fitnesses" FromRole="Fitnesses1" ToRole="Fitnesses" />
+          <NavigationProperty Name="Players" Relationship="Self.FK_Players_Fitnesses" FromRole="Fitnesses" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="TextDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Messages_Users" FromRole="Messages" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nationality" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Position" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GoalScored" Type="Int32" />
+          <Property Name="Assist" Type="Int32" />
+          <Property Name="FitnessId" Type="Int32" Nullable="false" />
+          <Property Name="SalaryId" Type="Int32" />
+          <Property Name="JOiningDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContactYear" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Fitness" Relationship="Self.FK_Players_Fitnesses" FromRole="Players" ToRole="Fitnesses" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Players__PlayerI__30F848ED" FromRole="Players" ToRole="Users" />
+          <NavigationProperty Name="Salary" Relationship="Self.FK_Players_Salaries" FromRole="Players" ToRole="Salaries" />
+        </EntityType>
+        <EntityType Name="Salary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="SalaryGrade" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Bonus" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Players" Relationship="Self.FK_Players_Salaries" FromRole="Salaries" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Message" Relationship="Self.FK_Messages_Users" FromRole="Users" ToRole="Messages" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__Players__PlayerI__30F848ED" FromRole="Users" ToRole="Players" />
+          <NavigationProperty Name="EmployeeInformations" Relationship="Self.FK__EmployeeI__Emplo__24927208" FromRole="Users" ToRole="EmployeeInformations" />
+        </EntityType>
+        <EntityType Name="EmployeeInformation">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="Age" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="JOiningDate" />
+            <PropertyRef Name="ContactYear" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOiningDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContactYear" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Self.FK__EmployeeI__Emplo__24927208" FromRole="EmployeeInformations" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Fixure">
+          <Key>
+            <PropertyRef Name="Opponent" />
+          </Key>
+          <Property Name="MatchDay" Type="Int32" />
+          <Property Name="Opponent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MatchStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MatchDate" Type="DateTime" Precision="0" />
+          <Property Name="Result" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Fitnesses_Fitnesses">
+          <End Role="Fitnesses" Type="Self.Fitness" Multiplicity="1" />
+          <End Role="Fitnesses1" Type="Self.Fitness" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Fitnesses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fitnesses1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Fitnesses">
+          <End Role="Fitnesses" Type="Self.Fitness" Multiplicity="1" />
+          <End Role="Players" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fitnesses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="FitnessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Messages" Type="Self.Message" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Players__PlayerI__30F848ED">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Players" Type="Self.Player" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Salaries">
+          <End Role="Salaries" Type="Self.Salary" Multiplicity="0..1" />
+          <End Role="Players" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salaries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="SalaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeI__Emplo__24927208">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="EmployeeInformations" Type="Self.EmployeeInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeInformations">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Fitnesses" EntityType="Self.Fitness" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <EntitySet Name="Salaries" EntityType="Self.Salary" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="EmployeeInformations" EntityType="Self.EmployeeInformation" />
+          <EntitySet Name="Fixures" EntityType="Self.Fixure" />
+          <AssociationSet Name="FK_Fitnesses_Fitnesses" Association="Self.FK_Fitnesses_Fitnesses">
+            <End Role="Fitnesses" EntitySet="Fitnesses" />
+            <End Role="Fitnesses1" EntitySet="Fitnesses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Fitnesses" Association="Self.FK_Players_Fitnesses">
+            <End Role="Fitnesses" EntitySet="Fitnesses" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_Users" Association="Self.FK_Messages_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Players__PlayerI__30F848ED" Association="Self.FK__Players__PlayerI__30F848ED">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Salaries" Association="Self.FK_Players_Salaries">
+            <End Role="Salaries" EntitySet="Salaries" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeI__Emplo__24927208" Association="Self.FK__EmployeeI__Emplo__24927208">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="EmployeeInformations" EntitySet="EmployeeInformations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FMSModelStoreContainer" CdmEntityContainer="FMSEntities">
+          <EntitySetMapping Name="Fitnesses">
+            <EntityTypeMapping TypeName="FMSModel.Fitness">
+              <MappingFragment StoreEntitySet="Fitnesses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="SalaryGrade" ColumnName="SalaryGrade" />
+                <ScalarProperty Name="InjuryStatus" ColumnName="InjuryStatus" />
+                <ScalarProperty Name="OvarallRating" ColumnName="OvarallRating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="FMSModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TextDetails" ColumnName="TextDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="FMSModel.Player">
+              <MappingFragment StoreEntitySet="Players">
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="GoalScored" ColumnName="GoalScored" />
+                <ScalarProperty Name="Assist" ColumnName="Assist" />
+                <ScalarProperty Name="FitnessId" ColumnName="FitnessId" />
+                <ScalarProperty Name="SalaryId" ColumnName="SalaryId" />
+                <ScalarProperty Name="JOiningDate" ColumnName="JOiningDate" />
+                <ScalarProperty Name="ContactYear" ColumnName="ContactYear" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salaries">
+            <EntityTypeMapping TypeName="FMSModel.Salary">
+              <MappingFragment StoreEntitySet="Salaries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="SalaryGrade" ColumnName="SalaryGrade" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FMSModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FMSModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeInformations">
+            <EntityTypeMapping TypeName="FMSModel.EmployeeInformation">
+              <MappingFragment StoreEntitySet="EmployeeInformations">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="JOiningDate" ColumnName="JOiningDate" />
+                <ScalarProperty Name="ContactYear" ColumnName="ContactYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fixures">
+            <EntityTypeMapping TypeName="FMSModel.Fixure">
+              <MappingFragment StoreEntitySet="Fixures">
+                <ScalarProperty Name="MatchDay" ColumnName="MatchDay" />
+                <ScalarProperty Name="Opponent" ColumnName="Opponent" />
+                <ScalarProperty Name="MatchStatus" ColumnName="MatchStatus" />
+                <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

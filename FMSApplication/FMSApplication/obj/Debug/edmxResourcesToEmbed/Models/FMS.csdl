@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EmployeeInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="E_Designation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JoiningDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ContactYear" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Fitness">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="f_Percentage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InjuryStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OverallRating" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Fitness" FromRole="Fitness" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nationality" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GoalScored" Type="Int32" />
+    <Property Name="Assist" Type="Int32" />
+    <Property Name="FitnessId" Type="Int32" Nullable="false" />
+    <Property Name="SalaryId" Type="Int32" Nullable="false" />
+    <Property Name="JoiningDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ContactYear" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Fitness" Relationship="Self.FK_Players_Fitness" FromRole="Players" ToRole="Fitness" />
+    <NavigationProperty Name="Salary" Relationship="Self.FK_Players_Salaries" FromRole="Players" ToRole="Salaries" />
+  </EntityType>
+  <EntityType Name="Salary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="SalaryGrade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bonus" Type="Int32" />
+    <Property Name="SalaryStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Salaries" FromRole="Salaries" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fixture">
+    <Key>
+      <PropertyRef Name="Opponent" />
+      <PropertyRef Name="Match_Status" />
+      <PropertyRef Name="Match_Date" />
+      <PropertyRef Name="Result" />
+    </Key>
+    <Property Name="MatchDay" Type="Int32" />
+    <Property Name="Opponent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Match_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Match_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Result" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Players_Fitness">
+    <End Role="Fitness" Type="Self.Fitness" Multiplicity="1" />
+    <End Role="Players" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fitness">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="FitnessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Salaries">
+    <End Role="Salaries" Type="Self.Salary" Multiplicity="1" />
+    <End Role="Players" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salaries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="SalaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FMSEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EmployeeInformations" EntityType="Self.EmployeeInformation" />
+    <EntitySet Name="Fitnesses" EntityType="Self.Fitness" />
+    <EntitySet Name="Players" EntityType="Self.Player" />
+    <EntitySet Name="Salaries" EntityType="Self.Salary" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Fixtures" EntityType="Self.Fixture" />
+    <AssociationSet Name="FK_Players_Fitness" Association="Self.FK_Players_Fitness">
+      <End Role="Fitness" EntitySet="Fitnesses" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Salaries" Association="Self.FK_Players_Salaries">
+      <End Role="Salaries" EntitySet="Salaries" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
