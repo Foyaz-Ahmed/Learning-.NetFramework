@@ -11,23 +11,37 @@ namespace FMSApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Player
     {
+        
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Nationality { get; set; }
+        [Required]
         public int Age { get; set; }
+        [Required]
         public string Position { get; set; }
+        [Required]
         public Nullable<int> GoalScored { get; set; }
+        [Required]
         public Nullable<int> Assist { get; set; }
+        [Required]
         public int FitnessId { get; set; }
+        [Required]
         public int SalaryId { get; set; }
+        [Required]
         public System.DateTime JoiningDate { get; set; }
+        [Required]
         public System.DateTime ContactYear { get; set; }
+        [Required]
         public System.DateTime Dob { get; set; }
-    
+       
         public virtual Fitness Fitness { get; set; }
+      
         public virtual Salary Salary { get; set; }
     }
 }

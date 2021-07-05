@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace FMSApplication.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         // GET: Employee

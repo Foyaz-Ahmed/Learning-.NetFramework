@@ -70,7 +70,7 @@ span.psw {
 
     <h2>Login Form</h2>
 
-    <form action="" method="post">
+    <form action="/Login/Index?returnUrl=@Request.QueryString["ReturnUrl"]" method="post">
         <div class="imgcontainer">
         </div>
 
@@ -80,56 +80,11 @@ span.psw {
 
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password">
-
+                <h3 style="color:red;">@ViewBag.message</h3>
             <button type="submit">Login</button>
-            <label>
-                 <h5>@ViewBag.message</h5>
-            </label>
-        </div>
 
-        <!--
-     <div class="container" style="background-color:#f1f1f1">
-         <button type="button" class="cancelbtn">Cancel</button>
-         <span class="psw">Forgot <a href="#">password?</a></span>
-     </div>
-    -->
+        </div>
     </form>
 
 </body>
 </html>
-
-<!--<html>
-<head>
-    <style>
-        .button {
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-        }
-    </style>
-</head>
-
-<body>
-    <h2>Index</h2>
-    <form method="post">
-        <table>
-            <tr>
-                <td>User Name:</td>
-                <td><input type="text" name="Username" /></td>
-            </tr>
-            <tr>
-                <td>User Password:</td>
-                <td><input type="text" name="Password" /></td>
-            </tr>
-        </table>
-        
-        <br />
-        <input type="submit" name="submit" value="submit" class="button" />
-    </form>
-</body>
-</html>-->

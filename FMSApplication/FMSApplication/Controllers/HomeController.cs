@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace FMSApplication.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         FMSEntities context = new FMSEntities();
@@ -26,7 +27,10 @@ namespace FMSApplication.Controllers
             var countgk = context.Players.Count(t => t.Position == "GoalKeeper");
             ViewBag.count_gk = countgk;
 
-            ViewBag.total = countfr + countcdm + countgk;
+            var countdf = context.Players.Count(t => t.Position == "Defender");
+            ViewBag.count_df = countdf;
+
+            ViewBag.total = countfr + countcdm + countgk + countdf;
 
 
 

@@ -1,20 +1,24 @@
 ﻿@model IEnumerable<FMSApplication.Models.Player>
 
 @{
-    ViewBag.Title = "PlayerList";
+    ViewBag.Title = "Defender";
 }
+<!DOCTYPE html>
+
 <html>
 <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Defenders</title>
     <style>
         .button_add {
-            margin-left:400px;
+            margin-left: 400px;
         }
     </style>
 </head>
 <body>
 
-
-    <h2 align="center">Player List</h2>
+    <br />
+    <h2 align="center">Goalkeepers List</h2>
 
     <p>
         <!-- @Html.ActionLink("Create New", "Create", new { @class = "btn btn-primary" })-->
@@ -25,6 +29,7 @@
         <a href="/Player/Gk" class="btn btn-primary">Goalkeeper</a>
 
     </p>
+
     <table class="table">
         <tr>
             <th>
@@ -60,7 +65,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Dob)
             </th>
-            <th>Action</th>
+            <th></th>
         </tr>
 
         @foreach (var item in Model)
@@ -101,8 +106,8 @@
                 </td>
                 <td>
                     <!--@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })-->
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })-->
                     <a href="/Player/Edit/@item.Id" class="btn btn-primary">Update</a>
                     <hr>
                     <a href="/Player/Details/@item.Id" class="btn btn-warning">Details</a>
@@ -115,3 +120,5 @@
     </table>
 </body>
 </html>
+
+

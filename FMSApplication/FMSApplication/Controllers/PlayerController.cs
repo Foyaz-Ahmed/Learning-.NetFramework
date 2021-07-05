@@ -7,16 +7,20 @@ using System.Web.Mvc;
 
 namespace FMSApplication.Controllers
 {
+    [Authorize]
     public class PlayerController : Controller
     {
         // GET: Admin
         
         FMSEntities context = new FMSEntities();
+        
+        
         public ActionResult Index()
         {
             return View();
 
         }
+       
         public ActionResult PlayerList() {
            
             var players = context.Players.ToList();
@@ -33,23 +37,34 @@ namespace FMSApplication.Controllers
         [HttpPost]
         public ActionResult Create(Player p)
         {
-            context.Players.Add(p);
-            context.SaveChanges();
-            return RedirectToAction("PlayerList");
+            if (ModelState.IsValid)
+            {
+                context.Players.Add(p);
+                context.SaveChanges();
+                return RedirectToAction("PlayerList");
+            }
+            return View();
+            
         }
         public ActionResult Edit(int Id)
         {
-
-            var p = context.Players.FirstOrDefault(e => e.Id == Id);
-            return View(p);
+            
+                var p = context.Players.FirstOrDefault(e => e.Id == Id);
+                return View(p);
+            
+           
         }
         [HttpPost]
         public ActionResult Edit(Player p)
         {
-            var old_value = context.Players.FirstOrDefault(e => e.Id == p.Id);
-            context.Entry(old_value).CurrentValues.SetValues(p);
-            context.SaveChanges();
-            return RedirectToAction("PlayerList");
+            if (ModelState.IsValid)
+            {
+                var old_value = context.Players.FirstOrDefault(e => e.Id == p.Id);
+                context.Entry(old_value).CurrentValues.SetValues(p);
+                context.SaveChanges();
+                return RedirectToAction("PlayerList");
+            }
+            return View();
         }
         public ActionResult Details(int Id)
         {
@@ -70,7 +85,37 @@ namespace FMSApplication.Controllers
             context.SaveChanges();
             return RedirectToAction("PlayerList");
         }
+
+        public ActionResult Defenders() {
+
+            var defenders = context.Players.ToList().Where(e => e.Position == "Defender");
+            return View(defenders);
         
-        
+        }
+
+        public ActionResult Forward()
+        {
+
+            var defenders = context.Players.ToList().Where(e => e.Position == "Forward");
+            return View(defenders);
+
+        }
+
+        public ActionResult CDM()
+        {
+
+            var cdm = context.Players.ToList().Where(e => e.Position == "CDM");
+            return View(cdm);
+
+        }
+        public ActionResult GK()
+        {
+
+            var gk = context.Players.ToList().Where(e => e.Position == "Goalkeeper");
+            return View(gk);
+
+        }
+
+
     }
 }

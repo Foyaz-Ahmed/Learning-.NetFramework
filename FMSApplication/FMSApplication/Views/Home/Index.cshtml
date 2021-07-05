@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+<h1>@Request.Cookies.Get("Username")</h1>
 <div class="card-group">
     <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
         <div class="card-body">
@@ -13,9 +13,10 @@
     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
         <div class="card-body">
             <h4 class="card-title">Players</h4>
-            <h5 class="card-text">Forwards:@ViewBag.count_forward</h5>
+            <h5 class="card-text">Defenders:@ViewBag.count_df</h5>
             <h5 class="card-text">CDM:@ViewBag.count_cdm</h5>
-            <h5 class="card-text">GoalKeeper:@ViewBag.count_gk</h5>
+            <h5 class="card-text">Forwards:@ViewBag.count_forward</h5>
+            <h5 class="card-text">GoalKeepers:@ViewBag.count_gk</h5>
             <h5 class="card-text">Total Players:@ViewBag.total</h5>
             <a href="/Player/PlayerList" class="btn btn-success">Manage Players</a>
         </div>
