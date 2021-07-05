@@ -130,7 +130,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\FixtureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SalaryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -144,18 +149,18 @@
       <DependentUpon>FMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FMS.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>FMS.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\FMS.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>FMS.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\FMS.Designer.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>FMS.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Player.cs">
@@ -180,13 +185,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\FMS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FMS.edmx</DependentUpon>
       <LastGenOutput>FMS.Context.cs</LastGenOutput>
+      <DependentUpon>FMS.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\FMS.edmx.diagram">
+      <DependentUpon>FMS.edmx</DependentUpon>
     </Content>
     <Content Include="Models\FMS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FMS.edmx</DependentUpon>
       <LastGenOutput>FMS.cs</LastGenOutput>
+      <DependentUpon>FMS.edmx</DependentUpon>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -194,9 +202,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FMS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\FMS.edmx.diagram">
-      <DependentUpon>FMS.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -219,17 +224,31 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Admin\PlayerList.cshtml" />
-    <Content Include="Views\Admin\Create.cshtml" />
-    <Content Include="Views\Admin\Edit.cshtml" />
-    <Content Include="Views\Admin\Details.cshtml" />
-    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Player\PlayerList.cshtml" />
+    <Content Include="Views\Player\Create.cshtml" />
+    <Content Include="Views\Player\Edit.cshtml" />
+    <Content Include="Views\Player\Details.cshtml" />
+    <Content Include="Views\Player\Delete.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Player\Salary.cshtml" />
+    <Content Include="Views\Salary\Index.cshtml" />
+    <Content Include="Views\Fixture\Index.cshtml" />
+    <Content Include="Views\Fixture\Details.cshtml" />
+    <Content Include="Views\Salary\Create.cshtml" />
+    <Content Include="Views\Salary\Edit.cshtml" />
+    <Content Include="Views\Salary\Details.cshtml" />
+    <Content Include="Views\Salary\Delete.cshtml" />
+    <Content Include="Views\Player\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

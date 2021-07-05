@@ -13,10 +13,10 @@ namespace FMSApplication.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FMSEntities1 : DbContext
+    public partial class FMSEntities : DbContext
     {
-        public FMSEntities1()
-            : base("name=FMSEntities1")
+        public FMSEntities()
+            : base("name=FMSEntities")
         {
         }
     

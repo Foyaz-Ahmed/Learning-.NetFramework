@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="FMSModelStoreContainer" CdmEntityContainer="FMSEntities1">
+  <EntityContainerMapping StorageEntityContainer="FMSModelStoreContainer" CdmEntityContainer="FMSEntities">
     <EntitySetMapping Name="EmployeeInformations">
       <EntityTypeMapping TypeName="FMSModel.EmployeeInformation">
         <MappingFragment StoreEntitySet="EmployeeInformations">
@@ -65,7 +65,7 @@
     <EntitySetMapping Name="Fixtures">
       <EntityTypeMapping TypeName="FMSModel.Fixture">
         <MappingFragment StoreEntitySet="Fixtures">
-          <ScalarProperty Name="MatchDay" ColumnName="MatchDay" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Opponent" ColumnName="Opponent" />
           <ScalarProperty Name="Match_Status" ColumnName="Match_Status" />
           <ScalarProperty Name="Match_Date" ColumnName="Match_Date" />

@@ -34,7 +34,7 @@ warning 6002: The table/view 'FMS.dbo.Fixtures' does not have a primary key defi
             <PropertyRef Name="Match_Date" />
             <PropertyRef Name="Result" />
           </Key>
-          <Property Name="MatchDay" Type="int" />
+          <Property Name="Id" Type="int" />
           <Property Name="Opponent" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Match_Status" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Match_Date" Type="date" Nullable="false" />
@@ -108,7 +108,7 @@ warning 6002: The table/view 'FMS.dbo.Fixtures' does not have a primary key defi
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fixtures" EntityType="Self.Fixtures" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Fixtures].[MatchDay] AS [MatchDay], 
+    [Fixtures].[Id] AS [Id], 
     [Fixtures].[Opponent] AS [Opponent], 
     [Fixtures].[Match_Status] AS [Match_Status], 
     [Fixtures].[Match_Date] AS [Match_Date], 
@@ -196,7 +196,7 @@ warning 6002: The table/view 'FMS.dbo.Fixtures' does not have a primary key defi
             <PropertyRef Name="Match_Date" />
             <PropertyRef Name="Result" />
           </Key>
-          <Property Name="MatchDay" Type="Int32" />
+          <Property Name="Id" Type="Int32" />
           <Property Name="Opponent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Match_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Match_Date" Type="DateTime" Nullable="false" Precision="0" />
@@ -226,7 +226,7 @@ warning 6002: The table/view 'FMS.dbo.Fixtures' does not have a primary key defi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FMSEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FMSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="EmployeeInformations" EntityType="Self.EmployeeInformation" />
           <EntitySet Name="Fitnesses" EntityType="Self.Fitness" />
           <EntitySet Name="Players" EntityType="Self.Player" />
@@ -247,7 +247,7 @@ warning 6002: The table/view 'FMS.dbo.Fixtures' does not have a primary key defi
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FMSModelStoreContainer" CdmEntityContainer="FMSEntities1">
+        <EntityContainerMapping StorageEntityContainer="FMSModelStoreContainer" CdmEntityContainer="FMSEntities">
           <EntitySetMapping Name="EmployeeInformations">
             <EntityTypeMapping TypeName="FMSModel.EmployeeInformation">
               <MappingFragment StoreEntitySet="EmployeeInformations">
@@ -312,7 +312,7 @@ warning 6002: The table/view 'FMS.dbo.Fixtures' does not have a primary key defi
           <EntitySetMapping Name="Fixtures">
             <EntityTypeMapping TypeName="FMSModel.Fixture">
               <MappingFragment StoreEntitySet="Fixtures">
-                <ScalarProperty Name="MatchDay" ColumnName="MatchDay" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Opponent" ColumnName="Opponent" />
                 <ScalarProperty Name="Match_Status" ColumnName="Match_Status" />
                 <ScalarProperty Name="Match_Date" ColumnName="Match_Date" />

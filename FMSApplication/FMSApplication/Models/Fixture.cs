@@ -14,7 +14,7 @@ namespace FMSApplication.Models
     
     public partial class Fixture
     {
-        public Nullable<int> MatchDay { get; set; }
+        public Nullable<int> Id { get; set; }
         public string Opponent { get; set; }
         public string Match_Status { get; set; }
         public System.DateTime Match_Date { get; set; }

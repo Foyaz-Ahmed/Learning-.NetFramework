@@ -67,7 +67,7 @@
       <PropertyRef Name="Match_Date" />
       <PropertyRef Name="Result" />
     </Key>
-    <Property Name="MatchDay" Type="Int32" />
+    <Property Name="Id" Type="Int32" />
     <Property Name="Opponent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Match_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Match_Date" Type="DateTime" Nullable="false" Precision="0" />
@@ -97,7 +97,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="FMSEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="FMSEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="EmployeeInformations" EntityType="Self.EmployeeInformation" />
     <EntitySet Name="Fitnesses" EntityType="Self.Fitness" />
     <EntitySet Name="Players" EntityType="Self.Player" />

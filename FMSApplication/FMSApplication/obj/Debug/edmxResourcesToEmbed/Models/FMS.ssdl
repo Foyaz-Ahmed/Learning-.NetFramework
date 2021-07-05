@@ -29,7 +29,7 @@ warning 6002: The table/view 'FMS.dbo.Fixtures' does not have a primary key defi
       <PropertyRef Name="Match_Date" />
       <PropertyRef Name="Result" />
     </Key>
-    <Property Name="MatchDay" Type="int" />
+    <Property Name="Id" Type="int" />
     <Property Name="Opponent" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Match_Status" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="Match_Date" Type="date" Nullable="false" />
@@ -103,7 +103,7 @@ warning 6002: The table/view 'FMS.dbo.Fixtures' does not have a primary key defi
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Fixtures" EntityType="Self.Fixtures" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [Fixtures].[MatchDay] AS [MatchDay], 
+    [Fixtures].[Id] AS [Id], 
     [Fixtures].[Opponent] AS [Opponent], 
     [Fixtures].[Match_Status] AS [Match_Status], 
     [Fixtures].[Match_Date] AS [Match_Date], 

@@ -1,0 +1,58 @@
+﻿@model FMSApplication.Models.EmployeeInformation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeInformation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoiningDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactYear)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
