@@ -15,25 +15,22 @@ namespace FMSApplication.Controllers
 
         public ActionResult Index()
         {
-
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string Username, string Password, string returnUrl)
+        public ActionResult Index(string UserName,string Password, string returnUrl)
         {
-            var match_value = context.Users.FirstOrDefault(uname => uname.UserName == Username && uname.Password == Password);
+           //var match_value = context.Users.FirstOrDefault(uname => uname.UserName == user.UserName  && uname.Password == user.Password);
+            var match_value = context.Users.FirstOrDefault(uname => uname.UserName == UserName  && uname.Password == Password);
 
             if (match_value != null)
             {
-              FormsAuthentication.SetAuthCookie("Username", false);
+                 FormsAuthentication.SetAuthCookie(UserName, false);
 
-              //  HttpCookie userInfo = new HttpCookie("userInfo");
-              //  userInfo["Uname"] = "Admin";
-             //   string value = string.Empty;
-              //  value = Request.Cookies["Uname"].Value;
-              //  ViewBag.cookie_value = value;
-              
+                //Response.Cookies.Add(new HttpCookie("uname", user.UserName));
+
                 return RedirectToAction("Index", "Home");
+            
                  
             }
             else
@@ -47,9 +44,17 @@ namespace FMSApplication.Controllers
 
         public ActionResult Logout() 
         {
-         
+       //     if (Request.Cookies["uname"] != null)
+        //    {
+
+        //        HttpCookie myCookie = new HttpCookie("uname");
+         //       myCookie.Expires = DateTime.Now.AddDays(-1d);
+       //         Response.Cookies.Add(myCookie);
+
+         ///   }
+
             FormsAuthentication.SignOut();
-            
+
             return Redirect("/Home");
         
         }

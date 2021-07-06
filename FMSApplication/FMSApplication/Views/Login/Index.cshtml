@@ -1,4 +1,4 @@
-﻿
+﻿@model FMSApplication.Models.User
 @{
     Layout = null;
 }
@@ -62,8 +62,6 @@ span.psw {
   padding-top: 16px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-
     </style>
 </head>
 <body>
@@ -76,10 +74,10 @@ span.psw {
 
         <div class="container">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="Username">
+            <input type="text" placeholder="Enter Username" name="UserName">
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password">
+            <input type="password" placeholder="Enter Password" name="Password">
                 <h3 style="color:red;">@ViewBag.message</h3>
             <button type="submit">Login</button>
 

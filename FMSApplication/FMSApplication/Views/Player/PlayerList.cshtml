@@ -17,7 +17,12 @@
     <h2 align="center">Player List</h2>
 
     <p>
-        <!-- @Html.ActionLink("Create New", "Create", new { @class = "btn btn-primary" })-->
+        
+            <!-- @Html.ActionLink("Create New", "Create", new { @class = "btn btn-primary" })-->
+       <form method="post" action="/Player/PlayerList" >
+            <input type="text" id="form1" class="form-control" name="Name" /><br />
+            <input type="submit" name="submit" value="submit" id="form1" class="btn btn-danger" />
+        </form>
         <a href="/Player/Create" class="button_add btn btn-success">Create New</a>
         <a href="/Player/Defenders" class="btn btn-default">Defenders</a>
         <a href="/Player/CDM" class="btn btn-danger">CDM</a>

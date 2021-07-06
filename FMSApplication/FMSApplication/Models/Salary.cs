@@ -11,7 +11,8 @@ namespace FMSApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Salary
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +20,15 @@ namespace FMSApplication.Models
         {
             this.Players = new HashSet<Player>();
         }
-    
+        [Required]
         public int Id { get; set; }
+        [Required]
         public int Amount { get; set; }
+        [Required]
         public string SalaryGrade { get; set; }
+        [Required]
         public Nullable<int> Bonus { get; set; }
+        [Required]
         public string SalaryStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

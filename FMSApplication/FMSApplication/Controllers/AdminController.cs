@@ -14,6 +14,7 @@ namespace FMSApplication.Controllers
         public ActionResult Index()
         {
             
+
             return View();
         }
     }

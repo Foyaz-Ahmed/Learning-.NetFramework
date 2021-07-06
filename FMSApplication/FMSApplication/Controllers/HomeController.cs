@@ -13,11 +13,10 @@ namespace FMSApplication.Controllers
         FMSEntities context = new FMSEntities();
         public ActionResult Index()
         {
-           
+           //Salary Count 
             ViewBag.total_salary = context.Salaries.Sum(e => e.Amount) + context.Salaries.Sum(e => e.Bonus);
 
-            // ViewBag.count = context.Players..Count(*);
-            //ViewBag.count = (from o in context.Players.Count();
+           //Player count
             var countfr = context.Players.Count(t => t.Position == "Forward");
             ViewBag.count_forward = countfr;
 
@@ -32,7 +31,23 @@ namespace FMSApplication.Controllers
 
             ViewBag.total = countfr + countcdm + countgk + countdf;
 
+            //employee count
+            var t1 = context.EmployeeInformations.Count(e => e.E_Designation == "Coach");
+            ViewBag.count_coach = t1;
 
+            var t2 = context.EmployeeInformations.Count(e => e.E_Designation == "Staff");
+            ViewBag.count_staff = t2;
+
+            var t3 = context.EmployeeInformations.Count(e => e.E_Designation == "Assistant Coach");
+            ViewBag.count_acoach = t3;
+
+            var t4 = context.EmployeeInformations.Count(e => e.E_Designation == "Physio");
+            ViewBag.count_physio = t4;
+
+            var t5 = context.EmployeeInformations.Count(e => e.E_Designation == "Admin");
+            ViewBag.count_admin = t5;
+
+            ViewBag.t = t1 + t2 + t3 + t5 + t4;
 
             return View();
         }

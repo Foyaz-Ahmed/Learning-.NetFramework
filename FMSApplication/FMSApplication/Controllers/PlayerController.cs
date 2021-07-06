@@ -28,6 +28,23 @@ namespace FMSApplication.Controllers
             
         }
 
+        [HttpPost]
+        public ActionResult PlayerList(string Name)
+        {
+
+            var players = context.Players.ToList();
+            if (Name != null)
+            {
+
+                players = context.Players.Where(e => e.Name.Contains(Name)).ToList();
+
+
+            }
+
+            return View(players);
+
+        }
+
         public ActionResult Create()
         {
             return View();

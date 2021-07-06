@@ -11,14 +11,22 @@ namespace FMSApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class EmployeeInformation
     {
+        [Required]
+
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public int Age { get; set; }
+        [Required]
         public string E_Designation { get; set; }
+        [Required]
         public System.DateTime JoiningDate { get; set; }
+        [Required]
         public System.DateTime ContactYear { get; set; }
     }
 }

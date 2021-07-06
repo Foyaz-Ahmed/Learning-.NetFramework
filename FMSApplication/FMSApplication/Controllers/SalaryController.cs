@@ -29,9 +29,13 @@ namespace FMSApplication.Controllers
         [HttpPost]
         public ActionResult Create(Salary s)
         {
-            context.Salaries.Add(s);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                context.Salaries.Add(s);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
         public ActionResult Edit(int Id)
         {
@@ -42,10 +46,14 @@ namespace FMSApplication.Controllers
         [HttpPost]
         public ActionResult Edit(Salary s)
         {
-            var old_value = context.Salaries.FirstOrDefault(e => e.Id == s.Id);
-            context.Entry(old_value).CurrentValues.SetValues(s);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                var old_value = context.Salaries.FirstOrDefault(e => e.Id == s.Id);
+                context.Entry(old_value).CurrentValues.SetValues(s);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
         public ActionResult Details(int Id)
         {

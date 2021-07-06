@@ -4,47 +4,55 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<!DOCTYPE html>
 
-<div>
-    <h4>Fixture</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Opponent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Opponent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Match_Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Match_Status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Match_Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Match_Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Result)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Result)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Fixture</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Opponent)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Opponent)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Match_Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Match_Status)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Match_Date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Match_Date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Result)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Result)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
