@@ -10,12 +10,18 @@ namespace FMSApplication.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
+        
         FMSEntities context = new FMSEntities();
+
+
+        [Authorize]
         public ActionResult Index()
         {
-            
+            var id = Session["uname"].ToString();
 
-            return View();
+            var s = context.EmployeeInformations.FirstOrDefault(e => e.Id.ToString() == id);
+            return View(s);
+
         }
     }
 }

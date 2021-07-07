@@ -1,6 +1,57 @@
-﻿@{
-    ViewBag.Title = "View";
+﻿@model FMSApplication.Models.EmployeeInformation
+
+@{
+    ViewBag.Title = "Index";
 }
 
+<h2>Index</h2>
 
+<div>
+    <h4>EmployeeInformation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </dt>
+
+        <dd>
+            <span>[@Model.JoiningDate.Date.ToString()]</span>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactYear.Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+</p>

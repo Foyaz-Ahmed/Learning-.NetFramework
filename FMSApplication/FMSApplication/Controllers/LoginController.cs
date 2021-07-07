@@ -18,42 +18,54 @@ namespace FMSApplication.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string UserName,string Password, string returnUrl)
+        public ActionResult Index(string Id, string Password, string returnUrl)
         {
-           //var match_value = context.Users.FirstOrDefault(uname => uname.UserName == user.UserName  && uname.Password == user.Password);
-            var match_value = context.Users.FirstOrDefault(uname => uname.UserName == UserName  && uname.Password == Password);
+            //var match_value = context.Users.FirstOrDefault(uname => uname.UserName == user.UserName  && uname.Password == user.Password);
+            var match_value = context.Users.FirstOrDefault(uname => uname.Id.ToString() == Id  && uname.Password == Password);
 
-            if (match_value != null)
+            if (Id != null && Password != null)
             {
-                 FormsAuthentication.SetAuthCookie(UserName, false);
+                if (match_value != null)
+                {
+                    FormsAuthentication.SetAuthCookie(Id, false);
+                    Session["uname"] = Id;
+                    //Response.Cookies.Add(new HttpCookie("uname", user.UserName));
 
-                //Response.Cookies.Add(new HttpCookie("uname", user.UserName));
+                    return RedirectToAction("Index", "Home");
 
-                return RedirectToAction("Index", "Home");
+                }
+
+                else
+                {
+                    ViewBag.message = "Empty Field or Your are given wrong info";
+
+
+                }
+            }
+
+            else if(Id == null && Password == null)
+            {
+                ViewBag.message = "Input Field is Empty or";
+            }
             
-                 
-            }
-            else
-            {
-                ViewBag.message = "Input Field is Empty or Your are givien wrong info";
-
-                return View();
-            }
-
+            return View();
         }
+            
+    
 
         public ActionResult Logout() 
         {
-       //     if (Request.Cookies["uname"] != null)
-        //    {
+            //     if (Request.Cookies["uname"] != null)
+            //    {
 
-        //        HttpCookie myCookie = new HttpCookie("uname");
-         //       myCookie.Expires = DateTime.Now.AddDays(-1d);
-       //         Response.Cookies.Add(myCookie);
+            //        HttpCookie myCookie = new HttpCookie("uname");
+            //       myCookie.Expires = DateTime.Now.AddDays(-1d);
+            //         Response.Cookies.Add(myCookie);
 
-         ///   }
-
+            ///   }
+            
             FormsAuthentication.SignOut();
+            Session.Abandon();
 
             return Redirect("/Home");
         

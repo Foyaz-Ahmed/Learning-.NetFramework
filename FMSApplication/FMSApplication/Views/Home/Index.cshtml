@@ -85,9 +85,13 @@
             height: 350px;
             margin-right: 10px;
         }
+        .button_margin {
+        
+            margin-left:20%;
+        }
     </style>
 </head>
-
+<h3 align="center">Welcome @Session["uname"].ToString()!</h3>
 <div class="main">
 
     <div class="one">
@@ -98,7 +102,7 @@
         <h4 class="card-text">Assistant Coach:@ViewBag.count_acoach</h4>
         <h4 class="card-text">Physio:@ViewBag.count_physio</h4>
         <h4 class="card-text">Total:@ViewBag.t</h4>
-        <a href="/Employee/Index" class="btn btn-danger">Manage Employee</a>
+        <a  href="/Employee/Index" class="button_margin btn btn-danger">Manage Employee</a>
     </div>
     <div class="two">
         <h1 class="card-title">Players</h1>
@@ -107,12 +111,12 @@
         <h4 class="card-text">Forwards:@ViewBag.count_forward</h4>
         <h4 class="card-text">GoalKeepers:@ViewBag.count_gk</h4>
         <h4 class="card-text">Total Players:@ViewBag.total</h4><br />
-        <a href="/Player/PlayerList" class="btn btn-success">Manage Players</a>
+        <a  href="/Player/PlayerList" class="button_margin btn btn-success">Manage Players</a>
     </div>
 
     <div class="three">
         <h1 class="card-title">Salary Budget/Month</h1>
         <h4 class="card-text">@ViewBag.total_salary/=</h4><br/><br /><br /><br /><br />
-        <a href="/Salary/Index" class="btn btn-primary">Manage Salary</a>
+        <a href="/Salary/Index" class="button_margin btn btn-primary">Manage Salary</a>
     </div>
 </div>
