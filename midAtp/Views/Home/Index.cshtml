@@ -1,0 +1,65 @@
+﻿@model IEnumerable<db.Models.Player>
+<h2>Players List</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Search</label>
+                        <div class="col-md-6">
+                            <input type="text" name="searchText" class="form-control" placeholder="Search your text here" style="max-width: 100%"/>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span>Search</button>
+                        </div>
+                    </div>
+                </div>
+            }
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.sortOrder == null ? "Asc": (ViewBag.sortOrder == "Asc" ? "Desc": "Asc"), sortBy = "Name" })
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Position)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Style)
+                    </th>
+                    <th>
+                        @Html.ActionLink("Age", "Index", new { sortOrder = ViewBag.sortOrder == null ? "Asc" : (ViewBag.sortOrder == "Asc" ? "Desc" : "Asc"), sortBy = "Age" })
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Position)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Style)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
