@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<!--
+<head>
+    <style>
+        .style_home {
+            margin-left:200px;
+        }
+        .style_2 {
+            float:left;
+            width:500px;
+            margin-left:50px;
+        }
+    </style>
+</head>
+<div class="style_home card-group">
+    <div class="style_one card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h4 class="card-title">Salary Budget/Month</h4>
+            <h5 class="card-text">@ViewBag.total_salary</h5>
+            <a href="/Salary/Index" class="btn btn-primary">Manage Salary</a>
+        </div>
+    </div>
+    <div class="style2 card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h4 class="card-title">Players</h4>
+            <h5 class="card-text">Defenders:@ViewBag.count_df</h5>
+            <h5 class="card-text">CDM:@ViewBag.count_cdm</h5>
+            <h5 class="card-text">Forwards:@ViewBag.count_forward</h5>
+            <h5 class="card-text">GoalKeepers:@ViewBag.count_gk</h5>
+            <h5 class="card-text">Total Players:@ViewBag.total</h5>
+            <a href="/Player/PlayerList" class="btn btn-success">Manage Players</a>
+        </div>
+    </div>
+    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h4 class="card-title">Employes</h4>
+            <h5 class="card-text">Admin:@ViewBag.count_admin</h5>
+            <h5 class="card-text">Coach:@ViewBag.count_coach</h5>
+            <h5 class="card-text">Staff:@ViewBag.count_staff</h5>
+            <h5 class="card-text">Assistant Coach:@ViewBag.count_acoach</h5>
+            <h5 class="card-text">Physio:@ViewBag.count_physio</h5>
+            <h5 class="card-text">Total:@ViewBag.t</h5>
+            <a href="/Employee/Index" class="btn btn-danger">Manage Employee</a>
+        </div>
+    </div>
+</div>
+-->
+<head>
+    <style>
+        .main {
+            width: 1000px;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+
+        .one {
+            background: red;
+            width: 300px;
+            float: left;
+            margin-right: 10px;
+            color: white;
+            padding: 30px;
+            height: 350px;
+        }
+
+        .two {
+            background: orange;
+            width: 300px;
+            float: left;
+            padding: 30px;
+            height: 350px;
+            margin-right: 10px;
+        }
+
+        .three {
+            background: orange;
+            width: 300px;
+            float: left;
+            padding: 30px;
+            height: 350px;
+            margin-right: 10px;
+        }
+
+        .button_margin {
+            margin-left: 20%;
+        }
+    </style>
+</head>
+<div class="main">
+
+    <div class="one">
+        <h1 class="card-title">Total Employee</h1>
+        <h4 class="card-text">Managers:@ViewBag.count_forward</h4>
+        <h4 class="card-text">Sr Software Eng:@ViewBag.count_cdm</h4>
+        <h4 class="card-text">Jr Software Eng:@ViewBag.count_cdm1</h4>
+        <h4 class="card-text">Seller:@ViewBag.count_gk</h4>
+        <h4 class="card-text">Jr Exicutive:@ViewBag.count_df</h4>
+        <h4 class="card-text">Total Players:@ViewBag.total</h4><br />
+    </div>
+
+    <div class="two">
+        <h1 class="card-title">Salary Budget/Month</h1>
+        <h4 class="card-text">@ViewBag.total_salary/=</h4><br /><br /><br /><br /><br />
+    </div>
+</div>

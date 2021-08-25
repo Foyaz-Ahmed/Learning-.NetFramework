@@ -1,0 +1,39 @@
+﻿@model IEnumerable<HRMApplication.Models.Company>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="/Company/Create" class="btn btn-success">Crate Company</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            <a href="/Company/Edit/@item.ID" class="btn btn-primary">Update</a>
+            <a href="/Company/Details/@item.ID" class="btn btn-warning">Details</a>
+            <a href="/Company/Delete/@item.ID" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

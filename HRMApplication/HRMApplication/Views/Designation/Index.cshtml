@@ -1,0 +1,39 @@
+﻿@model IEnumerable<HRMApplication.Models.Designation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="/Designation/Create" class="btn btn-success">Crate Designation</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.desig_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.desig_ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        <a href="/Designation/Edit/@item.desig_ID" class="btn btn-primary">Update</a>
+        <a href="/Designation/Details/@item.desig_ID" class="btn btn-warning">Details</a>
+        <a href="/Designation/Delete/@item.desig_ID" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
+}
+
+</table>
